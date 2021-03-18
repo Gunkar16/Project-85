@@ -37,10 +37,14 @@ function uploadcar1(){
 function uploadcar2(){
     CTX.drawImage(car2_imgTag,car2_X,car2_Y,car2_width,car2_height);
 }
+if(car1_X > 900){
+    console.log("car1 won")
+    document.getElementById("game_status").innerHTML="Car 1 Won !";
+}
 
 window.addEventListener("keydown",kd);
 function kd(e){
-    keyPressed=e.Keycode;
+    keyPressed=e.keyCode;
     if(keyPressed=='38'){
         up1();
     }
@@ -71,6 +75,7 @@ function up1(){
         car1_Y=car1_Y-10;
         uploadbackground();
         uploadcar1();
+        uploadcar2();
         console.log(car1_Y)
     } 
 }
@@ -79,6 +84,7 @@ function down1(){
         car1_Y=car1_Y+10;
         uploadbackground();
         uploadcar1();
+        uploadcar2();
         console.log(car1_Y)
     } 
 }
@@ -87,7 +93,9 @@ function right1(){
         car1_X=car1_X+10;
         uploadbackground();
         uploadcar1();
+        uploadcar2();
         console.log(car1_X)
+        
     } 
 }
 function left1(){
@@ -95,6 +103,7 @@ function left1(){
         car1_X=car1_X-10;
         uploadbackground();
         uploadcar1();
+        uploadcar2();
         console.log(car1_X)
     } 
 }
@@ -103,6 +112,7 @@ function up2(){
         car2_Y=car2_Y-10;
         uploadbackground();
         uploadcar2();
+        uploadcar1();
         console.log(car2_Y)
     } 
 }
@@ -111,6 +121,7 @@ function down2(){
         car2_Y=car2_Y+10;
         uploadbackground();
         uploadcar2();
+        uploadcar1();
         console.log(car2_Y)
     } 
 }
@@ -119,6 +130,7 @@ function right2(){
         car2_X=car2_X+10;
         uploadbackground();
         uploadcar2();
+        uploadcar1();
         console.log(car2_X)
     } 
 }
@@ -127,6 +139,7 @@ function left2(){
         car2_X=car2_X-10;
         uploadbackground();
         uploadcar2();
-        console.log(car1_X)
+        uploadcar1();
+        console.log(car2_X)
     } 
 }
